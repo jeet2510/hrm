@@ -244,6 +244,19 @@
                                                 </td> {{-- Access 'final_tax' key from the first element of the array --}}
                                             </tr>
                                         @endif
+                                        {{-- {{ dd($payslipDetail['advance_details']) }} --}}
+                                        @if ($payslipDetail['advance_details'] != null)
+                                            <tr>
+                                                <td>{{ __('Advance Salary') }}</td>
+                                                <td>{{ $payslipDetail['advance_details']->approved_date }}</td>
+                                                {{-- Access 'title' key from the first element of the array --}}
+                                                <td> - </td>
+                                                <td class="text-right">
+                                                    {{ \Auth::user()->priceFormat($payslipDetail['advance_details']->approved_amount ?? 0) }}
+                                                </td> {{-- Access 'final_tax' key from the first element of the array --}}
+                                            </tr>
+                                        @endif
+
                                     </tbody>
                                 </table>
                             </div>
@@ -266,8 +279,6 @@
                             <div class="row mt-4">
                                 <div class="col-lg-8">
 
-                                </div>
-                                <div>
                                 </div>
                                 <div class="col-lg-4 text-right text-sm">
                                     {{-- <div class="invoice-detail-item pb-2">

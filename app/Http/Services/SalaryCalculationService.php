@@ -5,6 +5,7 @@ namespace App\Http\Services;
 use App\Models\Allowance;
 use App\Models\PayslipType;
 use App\Models\Tax;
+use App\Models\AdvanceSalary;
 use App\Models\SalaryTaxDetail;
 
 class SalaryCalculationService
@@ -39,6 +40,7 @@ class SalaryCalculationService
 
             $data['to_be_store_for_pay_slip'] = self::finalData($employee, $tax_calculation, $deduction_from_tax_details, $tax_details);
             $data['to_be_stored_in_sub_tax_deatils'] = $deduction_from_tax_details;
+
         } else {
             // Handle case when $tax_details is null, for example:
                 $emp_salary_slab_details = null;
@@ -55,10 +57,30 @@ class SalaryCalculationService
                 $data['to_be_store_for_pay_slip'] = self::finalData($employee, $tax_calculation, $deduction_from_tax_details, $tax_details);
                 $data['to_be_stored_in_sub_tax_deatils'] = [];
         }
-
         return $data;
     }
 
+    public function advaceSalaryData($employee, $month){
+        $advance_details = AdvanceSalary::where('employee_id', $employee->id)->where('advance_salary_month', $month)->where('status', '1')->select('id', 'approved_amount', 'approved_date', 'ask_date')->first();
+        // dd($advance_details);
+        return $advance_details;
+
+    }
+
+    public function advaceSalaryCarryOver($employee, $month, $net_payble, $previous_advance_details){
+        $nextMonth = date('Y-m', strtotime($month . ' +1 month'));
+
+        $carryAdvanceSalary = new AdvanceSalary();
+        $carryAdvanceSalary->employee_id = $employee->id;
+        $carryAdvanceSalary->advance_salary_month = $nextMonth;
+        $carryAdvanceSalary->approved_date = $previous_advance_details->approved_date;
+        $carryAdvanceSalary->ask_date = $previous_advance_details->ask_date;
+        $carryAdvanceSalary->reason = 'Carrying over advance amount from ' . date('F Y', strtotime($month)) . ' to ' . date('F Y', strtotime($nextMonth)) . ' for advance salary ID ' . $previous_advance_details->id;
+        $carryAdvanceSalary->approved_amount = abs($net_payble);
+        $carryAdvanceSalary->status = 1;
+        $carryAdvanceSalary->save();
+        // dd($carryAdvanceSalary);
+    }
     public function finalData($e, $tax_calculation, $deduction_from_tax_details, $tax_details) {
         // Initialize variables with default values or null
         $allowance_ids = null;

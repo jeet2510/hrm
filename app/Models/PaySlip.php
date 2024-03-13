@@ -17,6 +17,7 @@ class PaySlip extends Model
         'loan',
         'saturation_deduction',
         'tax_deduction',
+        'advance_payment_deduction',
         'other_payment',
         'overtime',
         'created_by',
