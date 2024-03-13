@@ -244,6 +244,7 @@
                                                 </td> {{-- Access 'final_tax' key from the first element of the array --}}
                                             </tr>
                                         @endif
+<<<<<<< HEAD
                                         {{-- {{ dd($payslipDetail['advance_details']) }} --}}
                                         @if ($payslipDetail['advance_details'] != null)
                                             <tr>
@@ -257,6 +258,8 @@
                                             </tr>
                                         @endif
 
+=======
+>>>>>>> 200d3e83 (Initial commit)
                                     </tbody>
                                 </table>
                             </div>
@@ -280,6 +283,11 @@
                                 <div class="col-lg-8">
 
                                 </div>
+<<<<<<< HEAD
+=======
+                                <div>
+                                </div>
+>>>>>>> 200d3e83 (Initial commit)
                                 <div class="col-lg-4 text-right text-sm">
                                     {{-- <div class="invoice-detail-item pb-2">
                                         <div class="invoice-detail-name font-weight-bold">{{ __('Total Earning') }}

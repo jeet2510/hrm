@@ -120,23 +120,30 @@ class PaySlipController extends Controller
             //    dd($dd);
                 $tax_cal_data = $salaryCalculator->taxDeduction($employee);
 
+<<<<<<< HEAD
                 $advance_salary_data = $salaryCalculator->advaceSalaryData($employee, $formate_month_year);
 
                 $advance_amount = 0;
                 if($advance_salary_data != null){
                     $advance_amount = $advance_salary_data['approved_amount'];
                 }
+=======
+>>>>>>> 200d3e83 (Initial commit)
                 $taxDeductionData = $tax_cal_data['to_be_store_for_pay_slip'];
                 $subTaxStoreData = $tax_cal_data['to_be_stored_in_sub_tax_deatils'];
                 // dd($subTaxStoreData);
                 $tax_amount = $taxDeductionData['final_tax'];
 
+<<<<<<< HEAD
                 $net_payble = $employee->get_net_salary() - $tax_amount - $advance_amount;
 
                 if($net_payble < 0){
                     $carry_over_data = $salaryCalculator->advaceSalaryCarryOver($employee, $formate_month_year, $net_payble, $advance_salary_data);
                 }
 
+=======
+                $net_payble = $employee->get_net_salary() - $tax_amount;
+>>>>>>> 200d3e83 (Initial commit)
                 if (!$chek && $chek == null) {
                     $payslipEmployee                       = new PaySlip();
                     $payslipEmployee->employee_id          = $employee->id;
@@ -149,7 +156,10 @@ class PaySlipController extends Controller
                     $payslipEmployee->loan                 = Employee::loan($employee->id);
                     $payslipEmployee->saturation_deduction = Employee::saturation_deduction($employee->id);
                     $payslipEmployee->tax_deduction        = json_encode($taxDeductionData);
+<<<<<<< HEAD
                     $payslipEmployee->advance_payment_deduction= json_encode($advance_salary_data) ?? 0;
+=======
+>>>>>>> 200d3e83 (Initial commit)
                     $payslipEmployee->other_payment        = Employee::other_payment($employee->id);
                     $payslipEmployee->overtime             = Employee::overtime($employee->id);
                     $payslipEmployee->created_by           = \Auth::user()->creatorId();
@@ -498,4 +508,8 @@ class PaySlipController extends Controller
         return $data;
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 200d3e83 (Initial commit)

@@ -17,7 +17,10 @@ class PaySlip extends Model
         'loan',
         'saturation_deduction',
         'tax_deduction',
+<<<<<<< HEAD
         'advance_payment_deduction',
+=======
+>>>>>>> 200d3e83 (Initial commit)
         'other_payment',
         'overtime',
         'created_by',
@@ -33,4 +36,8 @@ class PaySlip extends Model
     {
         return $this->hasOne('App\Models\Employee', 'id', 'employee_id');
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 200d3e83 (Initial commit)

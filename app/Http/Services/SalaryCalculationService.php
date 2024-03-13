@@ -5,7 +5,10 @@ namespace App\Http\Services;
 use App\Models\Allowance;
 use App\Models\PayslipType;
 use App\Models\Tax;
+<<<<<<< HEAD
 use App\Models\AdvanceSalary;
+=======
+>>>>>>> 200d3e83 (Initial commit)
 use App\Models\SalaryTaxDetail;
 
 class SalaryCalculationService
@@ -40,7 +43,10 @@ class SalaryCalculationService
 
             $data['to_be_store_for_pay_slip'] = self::finalData($employee, $tax_calculation, $deduction_from_tax_details, $tax_details);
             $data['to_be_stored_in_sub_tax_deatils'] = $deduction_from_tax_details;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 200d3e83 (Initial commit)
         } else {
             // Handle case when $tax_details is null, for example:
                 $emp_salary_slab_details = null;
@@ -57,6 +63,7 @@ class SalaryCalculationService
                 $data['to_be_store_for_pay_slip'] = self::finalData($employee, $tax_calculation, $deduction_from_tax_details, $tax_details);
                 $data['to_be_stored_in_sub_tax_deatils'] = [];
         }
+<<<<<<< HEAD
         return $data;
     }
 
@@ -81,6 +88,12 @@ class SalaryCalculationService
         $carryAdvanceSalary->save();
         // dd($carryAdvanceSalary);
     }
+=======
+
+        return $data;
+    }
+
+>>>>>>> 200d3e83 (Initial commit)
     public function finalData($e, $tax_calculation, $deduction_from_tax_details, $tax_details) {
         // Initialize variables with default values or null
         $allowance_ids = null;
