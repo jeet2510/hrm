@@ -244,7 +244,6 @@
                                                 </td> {{-- Access 'final_tax' key from the first element of the array --}}
                                             </tr>
                                         @endif
-<<<<<<< HEAD
                                         {{-- {{ dd($payslipDetail['advance_details']) }} --}}
                                         @if ($payslipDetail['advance_details'] != null)
                                             <tr>
@@ -258,8 +257,6 @@
                                             </tr>
                                         @endif
 
-=======
->>>>>>> 200d3e83 (Initial commit)
                                     </tbody>
                                 </table>
                             </div>
@@ -283,13 +280,11 @@
                                 <div class="col-lg-8">
 
                                 </div>
-<<<<<<< HEAD
-=======
-                                <div>
-                                </div>
->>>>>>> 200d3e83 (Initial commit)
-                                <div class="col-lg-4 text-right text-sm">
-                                    {{-- <div class="invoice-detail-item pb-2">
+                                <<<<<<< HEAD=======<div>
+                            </div>
+                            >>>>>>> 200d3e83 (Initial commit)
+                            <div class="col-lg-4 text-right text-sm">
+                                {{-- <div class="invoice-detail-item pb-2">
                                         <div class="invoice-detail-name font-weight-bold">{{ __('Total Earning') }}
                                         </div>
                                         <div class="invoice-detail-value">
@@ -301,28 +296,28 @@
                                         <div class="invoice-detail-value">
                                             {{ \Auth::user()->priceFormat($payslipDetail['totalDeduction']) }}</div>
                                     </div> --}}
-                                    <hr class="mt-2 mb-2">
-                                    <div class="invoice-detail-item">
-                                        <div class="invoice-detail-name font-weight-bold">{{ __('Net Salary') }}</div>
-                                        <div class="invoice-detail-value invoice-detail-value-lg">
-                                            {{ \Auth::user()->priceFormat($payslip->net_payble) }}</div>
-                                    </div>
+                                <hr class="mt-2 mb-2">
+                                <div class="invoice-detail-item">
+                                    <div class="invoice-detail-name font-weight-bold">{{ __('Net Salary') }}</div>
+                                    <div class="invoice-detail-value invoice-detail-value-lg">
+                                        {{ \Auth::user()->priceFormat($payslip->net_payble) }}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <hr>
-                <div class="text-md-right pb-2 text-sm">
-                    <div class="float-lg-left mb-lg-0 mb-3 ">
-                        <p class="mt-2">{{ __('Employee Signature') }}</p>
-                    </div>
-                    <p class="mt-2 "> {{ __('Paid By') }}</p>
+            </div>
+            <hr>
+            <div class="text-md-right pb-2 text-sm">
+                <div class="float-lg-left mb-lg-0 mb-3 ">
+                    <p class="mt-2">{{ __('Employee Signature') }}</p>
                 </div>
+                <p class="mt-2 "> {{ __('Paid By') }}</p>
             </div>
         </div>
-
     </div>
+
+</div>
 </div>
 
 <script type="text/javascript" src="{{ asset('js/html2pdf.bundle.min.js') }}"></script>

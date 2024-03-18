@@ -414,7 +414,6 @@ class Utility extends Model
         //     // dd($tax_deduction_amount, $deduc);
         // }
         // dd($deduction);
-<<<<<<< HEAD
         $advance_payment_detail      = PaySlip::where('employee_id', $employeeId)->where('salary_month', $month)->select('advance_payment_deduction')->first();
         // dd($advance_payment_detail);
         if($advance_payment_detail->advance_payment_deduction != "null"){
@@ -426,21 +425,13 @@ class Utility extends Model
             $approved_amount = 0;
         }
 
-=======
->>>>>>> 200d3e83 (Initial commit)
         $payslip['earning']        = $earning;
         $payslip['totalEarning']   = $earning['allowance'][0]->basic_salary + $totalAllowance + $totalCommission + $totalotherpayment + $ot;
         $payslip['deduction']      = $deduction;
         $payslip['tax_deduction_amount'] = $tax_deduction_amount;
-<<<<<<< HEAD
         $payslip['advance_details'] = $advance_details;
         // dd($tax_deduction_amount , $totaldeduction);
         $payslip['totalDeduction'] = $tax_deduction_amount + $totaldeduction + $approved_amount;
-=======
-        // dd($tax_deduction_amount , $totaldeduction);
-        $payslip['totalDeduction'] = $tax_deduction_amount + $totaldeduction;
-        $payslip['advanceSalaryMsg'] = self::advaceSalaryInfo($employeeId, $month);
->>>>>>> 200d3e83 (Initial commit)
         // $payslip['tax_deduction']      = $filteredData;
         // dd($payslip);
         // $payslip['tax_dedcution_title']  = $title;
@@ -2402,8 +2393,4 @@ class Utility extends Model
 
         return $data;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 200d3e83 (Initial commit)
